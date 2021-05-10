@@ -1,0 +1,1 @@
+:id, :continent, :location, :date, :totalCases, :new_cases, :totalDeaths, :newDeaths, :icuPatients, :hospPatients, :weeklyIcuAdmissions, :weeklyHospAdmissions, :positiveRate, :peopleVaccinated, :peopleFullyVaccinated, :newVaccinations, :totalVaccinationsPerHundred, :peopleVaccinatedPerHundred, :peopleFullyVaccinatedPerHundred, :population,
