@@ -350,6 +350,7 @@ export const LineChart = ({ covidData }) => {
                 {getChartPeopleVac()}
                 {getChartPeopleFullyVac()}
                 {getChartPeopleVacPerHundred()}
+                <p style={{ color: 'grey', fontSize: 'small' }}>Data from <a href="https://ourworldindata.org/">ourworldindata</a></p>
                 {/* <div>
                     <Row>
                         <Line data={selectedOption.value} options={options} />
