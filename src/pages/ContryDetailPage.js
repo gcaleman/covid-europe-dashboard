@@ -15,7 +15,7 @@ export const CountryDetailPage = () => {
     useEffect(
         () => {
             const fetchData = async () => {
-                const response = await fetch(`http://localhost:8080/country/${countryName}`);
+                const response = await fetch(`https://covidinfo-env.eba-v9taqhip.eu-west-1.elasticbeanstalk.com/country/${countryName}`);
                 const data = await response.json();
                 setCountryData(data);
             }

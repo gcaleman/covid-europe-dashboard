@@ -9,7 +9,7 @@ export const Footer = () => {
     }
 
     const openGithub = () => {
-        window.open("https://www.github.com/gcaleman/")
+        window.open("https://github.com/gcaleman/covid-europe-dashboard/")
     }
 
     return (

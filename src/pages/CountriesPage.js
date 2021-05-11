@@ -10,7 +10,7 @@ export const CountriesPage = () => {
     useEffect(
         () => {
             const fetchCountriesList = async () => {
-                const response = await fetch(`http://localhost:8080/all-from-initial-date`);
+                const response = await fetch(`https://covidinfo-env.eba-v9taqhip.eu-west-1.elasticbeanstalk.com/all-from-initial-date`);
                 const data = await response.json();
                 setDataList(data);
             }

@@ -13,7 +13,7 @@ export const CountriesList = () => {
     useEffect(
         () => {
             const fetchData = async () => {
-                const response = await fetch(`http://localhost:8080/countries`);
+                const response = await fetch(`https://covidinfo-env.eba-v9taqhip.eu-west-1.elasticbeanstalk.com/countries`);
                 const data = await response.json();
                 setCountriesList(data);
             }
