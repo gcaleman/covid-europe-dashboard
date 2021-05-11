@@ -75,24 +75,29 @@ export const CountryDetailPage = () => {
                     </Row>
                 </Container>
             </Navbar>
-            <Container style={{ paddingTop: '20px' }}>
-                <Row>
-                    <Col md={2} style={{ textAlign: 'left' }}>
-                        <p style={{ fontSize: 'small', color: 'grey' }}>Latest data from </p>
-                        <p style={{ fontSize: 'small' }}><b>{getLatestDate()}</b></p>
-                    </Col>
-                    <Col>
-                        <p style={{ fontSize: 'small' }}>Cases to date: <b>{getSumAllCases()}</b></p>
-                        <p style={{ fontSize: 'small' }}>Population: <b>{getPopulation()}</b></p>
-                    </Col>
-                </Row>
-                <hr></hr>
-                <Row>
-                    <Col>
-                        <CovidCharts covidData={shrinkDataForDate()} />
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+            <div>
+                <Container style={{ paddingTop: '20px' }}>
+                    <Row>
+                        <Col md={2} style={{ textAlign: 'left' }}>
+                            <p style={{ fontSize: 'small', color: 'grey' }}>Latest data from </p>
+                            <p style={{ fontSize: 'small' }}><b>{getLatestDate()}</b></p>
+                        </Col>
+                        <Col>
+                            <p style={{ fontSize: 'small' }}>Cases to date: <b>{getSumAllCases()}</b></p>
+                            <p style={{ fontSize: 'small' }}>Population: <b>{getPopulation()}</b></p>
+                        </Col>
+                    </Row>
+                    <hr></hr>
+                </Container>
+
+                <Container style={{ paddingBottom: '60px' }}>
+                    <Row style={{ height: '100vh' }}>
+                        <Col style={{ paddingBottom: '60px' }}>
+                            <CovidCharts covidData={shrinkDataForDate()} />
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </div >
     )
 }

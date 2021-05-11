@@ -26,12 +26,12 @@ export const CountriesPage = () => {
         <div className="countriesPage">
             <Container>
                 <Row>
-                    <Col >
+                    <Col style={{ paddingBottom: '60px' }}>
                         <h3>Countries List</h3>
                         <hr></hr>
                         <CountriesList />
                     </Col>
-                    <Col md={8}>
+                    <Col md={8} style={{ paddingBottom: '60px' }}>
                         <h3>Data Charts EU</h3>
                         <hr></hr>
                         <CovidCharts covidData={dataList} />
