@@ -39,7 +39,7 @@ public class DashboardConfig {
     public FlatFileItemReader<CovidInput> reader() {
         return new FlatFileItemReaderBuilder<CovidInput>()
                 .name("personItemReader")
-                .resource(new ClassPathResource("data.csv"))
+                .resource(new ClassPathResource("most_recent_data.csv"))
                 .delimited()
                 .names(ATTRIBUTES)
                 .fieldSetMapper(new BeanWrapperFieldSetMapper<CovidInput>() {{

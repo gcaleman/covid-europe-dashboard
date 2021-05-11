@@ -61,6 +61,20 @@ public class Covid {
         this.newCases = newCases;
     }
 
+    public Covid(LocalDate date, Integer totalCases, Integer newCases, Integer totalDeaths, Integer newDeaths, Integer icuPatients, Integer hospPatients, Integer peopleVaccinated, Integer peopleFullyVaccinated, Integer newVaccinations, Double peopleVaccinatedPerHundred) {
+        this.date = date;
+        this.totalCases = totalCases;
+        this.newCases = newCases;
+        this.totalDeaths = totalDeaths;
+        this.newDeaths = newDeaths;
+        this.icuPatients = icuPatients;
+        this.hospPatients = hospPatients;
+        this.peopleVaccinated = peopleVaccinated;
+        this.peopleFullyVaccinated = peopleFullyVaccinated;
+        this.newVaccinations = newVaccinations;
+        this.peopleVaccinatedPerHundred = peopleVaccinatedPerHundred;
+    }
+
     public Long getId() {
         return id;
     }

@@ -22,7 +22,6 @@ public class DashboardService {
         this.covidRepository = covidRepository;
     }
 
-
     public Country getCountryDataByName(String name) {
         Country country = countryRepository.getByCountryName(name);
         country.setCovidCases(covidRepository.getByLocationOrderByDateAsc(name));
@@ -39,31 +38,51 @@ public class DashboardService {
         return (sortedNames);
     }
 
-    public List<Covid> getAllCovidData() {
-        return (List<Covid>) covidRepository.findAll();
+    public List<LocalDate> getListOfDates() {
+        return covidRepository.getListOfDates();
     }
 
     public LocalDate getLatestDateWithData() {
-        return covidRepository.getLatestDate();
-    }
-
-    public List<LocalDate> getListOfDates() {
-        return covidRepository.getListOfDates();
+        return getListOfDates().get(getListOfDates().size() - 2);
     }
 
     public List<Covid> getDataFromStartToRecentAllCountries() {
         List<Covid> dataFromAllOnDates = new ArrayList<>();
         List<LocalDate> listOfDates = getListOfDates();
 
-        for (int i = 0; i < listOfDates.size(); i = i + 26) {
-            covidRepository.getSumOfNewCasesAllCountries(listOfDates.get(i));
-            covidRepository.getSumOfTotalCasesAllCountries(listOfDates.get(i));
-            dataFromAllOnDates.add(new Covid(listOfDates.get(i), covidRepository.getSumOfTotalCasesAllCountries(listOfDates.get(i)),
-                    covidRepository.getSumOfNewCasesAllCountries(listOfDates.get(i))));
+        for (int i = 0; i < listOfDates.size() - 2; i = i + 23) {
+            Integer newCases = covidRepository.getSumOfNewCasesAllCountries(listOfDates.get(i));
+            Integer totalCases = covidRepository.getSumOfTotalCasesAllCountries(listOfDates.get(i));
+            Integer totalDeaths = covidRepository.getSumOfTotalDeathsAllCountries(listOfDates.get(i));
+            Integer newDeaths = covidRepository.getSumOfNewDeathsAllCountries(listOfDates.get(i));
+            Integer icuPatients = covidRepository.getSumOfIcuPatientsAllCountries(listOfDates.get(i));
+            Integer hospPatients = covidRepository.getSumOfHospPatientsAllCountries(listOfDates.get(i));
+            Integer peopleVac = covidRepository.getSumOfPeopleVaccinatedAllCountries(listOfDates.get(i));
+            Integer peopleFullyVac = covidRepository.getSumOfPeopleFullyVaccinatedAllCountries(listOfDates.get(i));
+            Integer newVaccination = covidRepository.getSumOfNewVaccinationsAllCountries(listOfDates.get(i));
+            Double peopleVaccinatedPerHundred = covidRepository.getSumOfPeopleVaccinatedPerHundredAllCountries(listOfDates.get(i));
+
+            dataFromAllOnDates.add(new Covid(listOfDates.get(i), totalCases,
+                    newCases, totalDeaths, newDeaths, icuPatients, hospPatients, peopleVac, peopleFullyVac, newVaccination, peopleVaccinatedPerHundred));
         }
 
-        if (!dataFromAllOnDates.contains(getLatestDateWithData()))
-            dataFromAllOnDates.add(new Covid(getLatestDateWithData(), covidRepository.getSumOfTotalCasesAllCountries(getLatestDateWithData()), covidRepository.getSumOfNewCasesAllCountries(getLatestDateWithData())));
+        if (!dataFromAllOnDates.contains(getLatestDateWithData())) {
+
+            Integer newCases = covidRepository.getSumOfNewCasesAllCountries(getLatestDateWithData());
+            Integer totalCases = covidRepository.getSumOfTotalCasesAllCountries(getLatestDateWithData());
+            Integer totalDeaths = covidRepository.getSumOfTotalDeathsAllCountries(getLatestDateWithData());
+            Integer newDeaths = covidRepository.getSumOfNewDeathsAllCountries(getLatestDateWithData());
+            Integer icuPatients = covidRepository.getSumOfIcuPatientsAllCountries(getLatestDateWithData());
+            Integer hospPatients = covidRepository.getSumOfHospPatientsAllCountries(getLatestDateWithData());
+            Integer peopleVac = covidRepository.getSumOfPeopleVaccinatedAllCountries(getLatestDateWithData());
+            Integer peopleFullyVac = covidRepository.getSumOfPeopleFullyVaccinatedAllCountries(getLatestDateWithData());
+            Integer newVaccination = covidRepository.getSumOfNewVaccinationsAllCountries(getLatestDateWithData());
+            Double peopleVaccinatedPerHundred = covidRepository.getSumOfPeopleVaccinatedPerHundredAllCountries(getLatestDateWithData());
+
+            dataFromAllOnDates.add(new Covid(getLatestDateWithData(), totalCases,
+                    newCases, totalDeaths, newDeaths, icuPatients, hospPatients, peopleVac, peopleFullyVac, newVaccination, peopleVaccinatedPerHundred));
+
+        }
 
         return dataFromAllOnDates;
     }

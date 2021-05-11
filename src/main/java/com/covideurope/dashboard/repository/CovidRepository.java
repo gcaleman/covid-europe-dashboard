@@ -15,17 +15,8 @@ public interface CovidRepository extends CrudRepository<Covid, Long> {
 
     List<Covid> getByLocationOrderByDateAsc(String countryName);
 
-    @Query("select c from Covid c where c.date=(select max(c.date) from Covid c) and c.location=:name")
-    Covid getAllMostRecentData(@Param("name") String name);
-
-    @Query("select distinct c.date from Covid c where c.date=(select max(c.date) from Covid c)")
-    LocalDate getLatestDate();
-
     @Query("select distinct c.date from Covid c")
     List<LocalDate> getListOfDates();
-
-    @Query("select c from Covid c where c.date=:date")
-    List<Covid> getDataFromSelectedDate(@Param("date") LocalDate date);
 
     @Query("select sum(c.newCases) from Covid c where c.date=:date")
     Integer getSumOfNewCasesAllCountries(@Param("date") LocalDate date);
@@ -33,10 +24,29 @@ public interface CovidRepository extends CrudRepository<Covid, Long> {
     @Query("select sum(c.totalCases) from Covid c where c.date=:date")
     Integer getSumOfTotalCasesAllCountries(@Param("date") LocalDate date);
 
-//    @Query("select sum(c.newCases) from Covid c")
-//    Integer getSumOfTotalCasesAllCountriesToDate();
-
     @Query("select sum(c.totalDeaths) from Covid c where c.date=:date")
     Integer getSumOfTotalDeathsAllCountries(@Param("date") LocalDate date);
+
+    @Query("select sum(c.newDeaths) from Covid c where c.date=:date")
+    Integer getSumOfNewDeathsAllCountries(@Param("date") LocalDate date);
+
+    @Query("select sum(c.icuPatients) from Covid c where c.date=:date")
+    Integer getSumOfIcuPatientsAllCountries(@Param("date") LocalDate date);
+
+    @Query("select sum(c.hospPatients) from Covid c where c.date=:date")
+    Integer getSumOfHospPatientsAllCountries(@Param("date") LocalDate date);
+
+    @Query("select sum(c.peopleVaccinated) from Covid c where c.date=:date")
+    Integer getSumOfPeopleVaccinatedAllCountries(@Param("date") LocalDate date);
+
+    @Query("select sum(c.peopleFullyVaccinated) from Covid c where c.date=:date")
+    Integer getSumOfPeopleFullyVaccinatedAllCountries(@Param("date") LocalDate date);
+
+    @Query("select sum(c.newVaccinations) from Covid c where c.date=:date")
+    Integer getSumOfNewVaccinationsAllCountries(@Param("date") LocalDate date);
+
+    @Query("select avg(c.peopleVaccinatedPerHundred) from Covid c where c.date=:date")
+    Double getSumOfPeopleVaccinatedPerHundredAllCountries(@Param("date") LocalDate date);
+
 
 }

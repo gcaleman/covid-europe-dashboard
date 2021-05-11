@@ -35,6 +35,8 @@ public class CovidItemProcessor implements ItemProcessor<CovidInput, Covid> {
         covid.setPeopleFullyVaccinated(Integer.parseInt(covidInput.getPeople_fully_vaccinated()));
         covid.setNewVaccinations(Integer.parseInt(covidInput.getNew_vaccinations()));
         covid.setTotalVaccinationsPerHundred(Double.parseDouble(covidInput.getTotal_vaccinations_per_hundred()));
+        covid.setPeopleVaccinatedPerHundred(Double.parseDouble(covidInput.getPeople_vaccinated_per_hundred()));
+        covid.setPeopleFullyVaccinatedPerHundred(Double.parseDouble(covidInput.getPeople_fully_vaccinated_per_hundred()));
         covid.setPopulation(Integer.parseInt(covidInput.getPopulation()));
 
         return covid;

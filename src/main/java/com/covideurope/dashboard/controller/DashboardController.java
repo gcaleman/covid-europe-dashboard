@@ -31,13 +31,6 @@ public class DashboardController {
     public List<String> getListCountries() {
         return service.getAllCountriesNames();
     }
-    
-
-    @GetMapping("/all")
-    public List<Covid> getAll() {
-        return service.getAllCovidData();
-    }
-
 
     @GetMapping("/all-from-initial-date")
     public List<Covid> getAllDataFromDates() {
