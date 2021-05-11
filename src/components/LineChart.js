@@ -5,7 +5,7 @@ import Select from 'react-select';
 
 export const LineChart = ({ covidData }) => {
 
-    const [selectedOption, setSelectedOption] = useState("");
+    const [selectedOption, setSelectedOption] = useState([]);
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -175,35 +175,188 @@ export const LineChart = ({ covidData }) => {
     };
 
     const selectOptions = [
-        { value: dataNewCases, label: 'New Cases' },
-        { value: dataTotalCases, label: 'Total Cases' },
-        { value: dataNewDeaths, label: 'New Deaths' },
-        { value: dataTotalDeaths, label: 'Total Deaths' },
-        { value: dataNewVaccinations, label: 'New Vaccinations' },
-        { value: dataPeopleFullyVaccinated, label: 'Total People Fully Vaccinated' },
-        { value: dataPeopleVaccinated, label: 'Total People Vaccinated' },
-        { value: dataPeopleVacPerHundred, label: 'Percentage of People Vaccinated' },
+        { value: "New Cases", label: 'New Cases' },
+        { value: 'Total Cases', label: 'Total Cases' },
+        { value: 'New Deaths', label: 'New Deaths' },
+        { value: 'Total Deaths', label: 'Total Deaths' },
+        { value: 'New Vaccinations', label: 'New Vaccinations' },
+        { value: 'Total People Fully Vaccinated', label: 'Total People Fully Vaccinated' },
+        { value: 'Total People Vaccinated', label: 'Total People Vaccinated' },
+        { value: 'Percentage of People Vaccinated', label: 'Percentage of People Vaccinated' },
     ];
 
-    console.log('option: ' + selectedOption);
+    const getChartNewCases = () => {
+        let addData = [];
+        for (let index = 0; index < selectedOption.length; index++) {
+            if (selectedOption[index].value === "New Cases") {
+                addData.push("New Cases");
+            }
+        }
+        if (addData[0]) {
+            return (
+                <Row>
+                    <Line data={dataNewCases} options={options} />
+                </Row>
+            )
+        }
+        return <div></div>
+    }
+
+    const getChartTotalCases = () => {
+        let addData = [];
+        for (let index = 0; index < selectedOption.length; index++) {
+            if (selectedOption[index].value === "Total Cases") {
+                addData.push("Total Cases");
+            }
+        }
+        if (addData[0]) {
+            return (
+                <Row>
+                    <Line data={dataTotalCases} options={options} />
+                </Row>
+            )
+        }
+        return <div></div>
+    }
+
+    const getChartNewDeaths = () => {
+        let addData = [];
+        for (let index = 0; index < selectedOption.length; index++) {
+            if (selectedOption[index].value === "New Deaths") {
+                addData.push("New deaths");
+            }
+        }
+        if (addData[0]) {
+            return (
+                <Row>
+                    <Line data={dataNewDeaths} options={options} />
+                </Row>
+            )
+        }
+        return <div></div>
+    }
+
+    const getChartTotalDeaths = () => {
+        let addData = [];
+        for (let index = 0; index < selectedOption.length; index++) {
+            if (selectedOption[index].value === "Total Deaths") {
+                addData.push("Total Deaths");
+            }
+        }
+        if (addData[0]) {
+            return (
+                <Row>
+                    <Line data={dataTotalDeaths} options={options} />
+                </Row>
+            )
+        }
+        return <div></div>
+    }
+
+    const getChartNewVaccinations = () => {
+        let addData = [];
+        for (let index = 0; index < selectedOption.length; index++) {
+            if (selectedOption[index].value === "New Vaccinations") {
+                addData.push("new vac");
+            }
+        }
+        if (addData[0]) {
+            return (
+                <Row>
+                    <Line data={dataNewVaccinations} options={options} />
+                </Row>
+            )
+        }
+        return <div></div>
+    }
+
+    const getChartPeopleFullyVac = () => {
+        let addData = [];
+        for (let index = 0; index < selectedOption.length; index++) {
+            if (selectedOption[index].value === "Total People Fully Vaccinated") {
+                addData.push("new");
+            }
+            if (addData[0]) {
+                return (
+                    <Row>
+                        <Line data={dataPeopleFullyVaccinated} options={options} />
+                    </Row>
+                )
+            }
+        }
+        return <div></div>
+
+    }
+
+    const getChartPeopleVac = () => {
+        let addData = [];
+        for (let index = 0; index < selectedOption.length; index++) {
+            if (selectedOption[index].value === "Total People Vaccinated") {
+                addData.push("total");
+            }
+        }
+        if (addData[0]) {
+            return (
+                <Row>
+                    <Line data={dataPeopleVaccinated} options={options} />
+                </Row>
+            )
+        }
+        return <div></div>
+    }
+
+    const getChartPeopleVacPerHundred = () => {
+        let addData = [];
+        for (let index = 0; index < selectedOption.length; index++) {
+            if (selectedOption[index].value === "Percentage of People Vaccinated") {
+                addData.push("percentage");
+            }
+        }
+        if (addData[0]) {
+            return (
+                <Row>
+                    <Line data={dataPeopleVacPerHundred} options={options} />
+                </Row>
+            )
+        }
+        return <div></div>
+
+    }
 
     return (
         <div>
-            <Select
+            {/* <Select
                 defaultValue={[]}
                 onChange={setSelectedOption}
                 options={selectOptions}
                 placeholder="Select chart option.."
+            /> */}
+            <Select
+                defaultValue={[""]}
+                isMulti
+                name="charts"
+                options={selectOptions}
+                className="basic-multi-select"
+                classNamePrefix="select"
+                onChange={setSelectedOption}
+                placeholder="Select the data.."
             />
             <Container>
-                <hr></hr>
-                <div>
+                {getChartNewCases()}
+                {getChartTotalCases()}
+                {getChartNewDeaths()}
+                {getChartTotalDeaths()}
+                {getChartNewVaccinations()}
+                {getChartPeopleVac()}
+                {getChartPeopleFullyVac()}
+                {getChartPeopleVacPerHundred()}
+                {/* <div>
                     <Row>
                         <Line data={selectedOption.value} options={options} />
                     </Row>
                     <hr></hr>
                     <p style={{ color: 'grey', fontSize: 'small' }}>Data from <a href="https://ourworldindata.org/">ourworldindata</a></p>
-                </div>
+                </div> */}
             </Container>
         </div>
     );
