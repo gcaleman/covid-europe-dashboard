@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+.Footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: darkslategrey;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.icon:hover {
+  transform: scale(1.5);
+}

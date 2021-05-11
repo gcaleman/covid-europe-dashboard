@@ -8,7 +8,6 @@ export const CovidCharts = ({ covidData }) => {
         return <h1>Error!</h1>
     }
 
-
     return (
         <div className="CovidCharts">
             <LineChart covidData={covidData} />
