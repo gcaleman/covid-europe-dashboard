@@ -11,7 +11,7 @@ export const SelectContinent = () => {
                     <Col md={4}>
                     </Col>
                     <Col md={4}>
-                        <Link to="/country/Brazil"><h1 style={{ textAlign: 'center' }}>Brazil</h1></Link>
+                        <Link to="/country/Brazil"><h2 style={{ textAlign: 'center' }}>Brazil</h2></Link>
                     </Col>
                 </Row>
                 <hr></hr>
@@ -19,7 +19,7 @@ export const SelectContinent = () => {
                     <Col md={4}>
                     </Col>
                     <Col md={4}>
-                        <Link to="/europe"><h1 style={{ textAlign: 'center' }}>Europe</h1></Link>
+                        <Link to="/europe"><h2 style={{ textAlign: 'center' }}>Europe</h2></Link>
                     </Col>
                 </Row>
             </Container>
