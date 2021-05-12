@@ -78,7 +78,7 @@ export const CountryDetailPage = () => {
             <div>
                 <Container style={{ paddingTop: '20px' }}>
                     <Row>
-                        <Col md={2} style={{ textAlign: 'left' }}>
+                        <Col>
                             <p style={{ fontSize: 'small', color: 'grey' }}>Latest data from </p>
                             <p style={{ fontSize: 'small' }}><b>{getLatestDate()}</b></p>
                         </Col>
