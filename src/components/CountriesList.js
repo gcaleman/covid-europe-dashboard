@@ -43,7 +43,7 @@ export const CountriesList = () => {
             search.map((country, index) => {
                 return (
                     <ol key={index} >
-                        <h3><Link to={`/${country}`}>{country}</Link></h3>
+                        <h3><Link to={`/country/${country}`}>{country}</Link></h3>
                         <hr></hr>
                     </ol>
                 )

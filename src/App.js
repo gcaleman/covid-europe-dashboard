@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { NavigationBar } from './components/NavigationBar';
 import { CountryDetailPage } from './pages/ContryDetailPage';
 import { CountriesPage } from './pages/CountriesPage';
+import { SelectContinent } from './pages/SelectContinent';
 
 function App() {
   return (
@@ -11,11 +12,14 @@ function App() {
       <NavigationBar />
       <Router>
         <Switch>
-          <Route path="/:countryName">
+          <Route path="/country/:countryName">
             <CountryDetailPage />
           </Route>
-          <Route path="/">
+          <Route path="/europe">
             <CountriesPage />
+          </Route>
+          <Route path="/">
+            <SelectContinent />
           </Route>
         </Switch>
       </Router>
