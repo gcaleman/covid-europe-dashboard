@@ -43,14 +43,14 @@ public class DashboardService {
     }
 
     public LocalDate getLatestDateWithData() {
-        return getListOfDates().get(getListOfDates().size() - 2);
+        return getListOfDates().get(getListOfDates().size() - 1);
     }
 
     public List<Covid> getDataFromStartToRecentAllCountries() {
         List<Covid> dataFromAllOnDates = new ArrayList<>();
         List<LocalDate> listOfDates = getListOfDates();
 
-        for (int i = 0; i < listOfDates.size() - 2; i = i + 23) {
+        for (int i = 0; i < listOfDates.size() - 2; i = i + 13) {
             Integer newCases = covidRepository.getSumOfNewCasesAllCountries(listOfDates.get(i));
             Integer totalCases = covidRepository.getSumOfTotalCasesAllCountries(listOfDates.get(i));
             Integer totalDeaths = covidRepository.getSumOfTotalDeathsAllCountries(listOfDates.get(i));

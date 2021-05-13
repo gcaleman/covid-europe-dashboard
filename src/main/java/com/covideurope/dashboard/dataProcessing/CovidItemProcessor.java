@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.batch.item.ItemProcessor;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 public class CovidItemProcessor implements ItemProcessor<CovidInput, Covid> {
@@ -18,6 +17,7 @@ public class CovidItemProcessor implements ItemProcessor<CovidInput, Covid> {
     public Covid process(final CovidInput covidInput) throws Exception {
 
         Covid covid = new Covid();
+
         covid.setId(Long.parseLong(covidInput.getId()));
         covid.setLocation(covidInput.getLocation());
         covid.setContinent(covidInput.getContinent());
