@@ -342,14 +342,21 @@ export const LineChart = ({ covidData }) => {
                 placeholder="Select the data.."
             />
             <Container>
-                {getChartNewCases()}
-                {getChartTotalCases()}
-                {getChartNewDeaths()}
-                {getChartTotalDeaths()}
-                {getChartNewVaccinations()}
-                {getChartPeopleVac()}
-                {getChartPeopleFullyVac()}
                 {getChartPeopleVacPerHundred()}
+                
+                {getChartPeopleFullyVac()}
+
+                {getChartPeopleVac()}
+
+                {getChartNewVaccinations()}
+
+                {getChartTotalDeaths()}
+
+                {getChartNewDeaths()}
+
+                {getChartTotalCases()}
+
+                {getChartNewCases()}
                 <p style={{ color: 'grey', fontSize: 'small' }}>Data from <a href="https://ourworldindata.org/">ourworldindata</a></p>
                 {/* <div>
                     <Row>
