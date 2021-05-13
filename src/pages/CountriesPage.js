@@ -11,7 +11,7 @@ export const CountriesPage = () => {
     useEffect(
         () => {
             const fetchCountriesList = async () => {
-                const response = await fetch(`http://localhost:8080/all-from-initial-date`);
+                const response = await fetch(`https://covidinfoapi.clmn.link/all-from-initial-date`);
                 const data = await response.json();
                 setDataList(data);
             }

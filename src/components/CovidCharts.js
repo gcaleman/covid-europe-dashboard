@@ -11,7 +11,7 @@ export const CovidCharts = ({ name }) => {
     useEffect(
         () => {
             const fetchData = async () => {
-                const response = await fetch(`http://localhost:8080/country/${name}`);
+                const response = await fetch(`https://covidinfoapi.clmn.link/country/${name}`);
                 const data = await response.json();
                 setCountryData(data);
             }

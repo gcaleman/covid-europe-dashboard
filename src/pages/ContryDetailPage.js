@@ -16,7 +16,7 @@ export const CountryDetailPage = () => {
     useEffect(
         () => {
             const fetchData = async () => {
-                const countryListResponse = await fetch(`http://localhost:8080/countries`)
+                const countryListResponse = await fetch(`https://covidinfoapi.clmn.link/countries`)
                 const countryListData = await countryListResponse.json();
                 setCountryList(countryListData);
             }
