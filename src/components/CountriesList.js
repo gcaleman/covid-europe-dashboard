@@ -10,10 +10,12 @@ export const CountriesList = () => {
 
     const userInput = useRef("");
 
+    const europeanCountries = [];
+
     useEffect(
         () => {
             const fetchData = async () => {
-                const response = await fetch(`https://covidinfoapi.clmn.link/countries`);
+                const response = await fetch(`http://localhost:8080/countries`);
                 const data = await response.json();
                 setCountriesList(data);
             }
@@ -25,20 +27,26 @@ export const CountriesList = () => {
         return <h1>Waiting for data..</h1>
     }
 
+    for (let index = 0; index < countriesList.length; index++) {
+        if(countriesList[index] !== "Brazil"){
+            europeanCountries.push(countriesList[index]);
+        }        
+    }
+
     const getSearchTerm = () => {
         setSearchTerm(userInput.current.value);
         if (searchTerm !== "") {
-            const filteredCountryList = countriesList.filter(countries => {
+            const filteredCountryList = europeanCountries.filter(countries => {
                 return countries.toLowerCase().includes(searchTerm.toLowerCase());
             });
             setSearchResult(filteredCountryList);
         } else {
-            setSearchResult(countriesList);
+            setSearchResult(europeanCountries);
         }
     }
 
     const mapFilteredList = () => {
-        let search = searchResult.length < 1 ? countriesList : searchResult;
+        let search = searchResult.length < 1 ? europeanCountries : searchResult;
         return (
             search.map((country, index) => {
                 return (

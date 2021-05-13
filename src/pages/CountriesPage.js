@@ -2,6 +2,7 @@ import { React, useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { CountriesList } from '../components/CountriesList';
 import { CovidCharts } from '../components/CovidCharts';
+import { LineChart } from '../components/LineChart';
 
 export const CountriesPage = () => {
 
@@ -10,7 +11,7 @@ export const CountriesPage = () => {
     useEffect(
         () => {
             const fetchCountriesList = async () => {
-                const response = await fetch(`https://covidinfoapi.clmn.link/all-from-initial-date`);
+                const response = await fetch(`http://localhost:8080/all-from-initial-date`);
                 const data = await response.json();
                 setDataList(data);
             }
@@ -34,7 +35,7 @@ export const CountriesPage = () => {
                     <Col md={8} style={{ paddingBottom: '60px' }}>
                         <h3>Data Charts EU</h3>
                         <hr></hr>
-                        <CovidCharts covidData={dataList} />
+                        <LineChart covidData={dataList} />
                     </Col>
                 </Row>
             </Container>

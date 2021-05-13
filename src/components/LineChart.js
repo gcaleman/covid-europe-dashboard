@@ -1,5 +1,5 @@
 import { React, useRef, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 import Select from 'react-select';
 
@@ -323,6 +323,7 @@ export const LineChart = ({ covidData }) => {
 
     }
 
+
     return (
         <div>
             {/* <Select
@@ -331,6 +332,7 @@ export const LineChart = ({ covidData }) => {
                 options={selectOptions}
                 placeholder="Select chart option.."
             /> */}
+            
             <Select
                 defaultValue={[""]}
                 isMulti
@@ -343,7 +345,7 @@ export const LineChart = ({ covidData }) => {
             />
             <Container>
                 {getChartPeopleVacPerHundred()}
-                
+
                 {getChartPeopleFullyVac()}
 
                 {getChartPeopleVac()}
