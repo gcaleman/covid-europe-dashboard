@@ -1,0 +1,11 @@
+version: '3'
+services:
+  covid-info:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: covid-info
+    ports:
+    - 443:80
+    volumes: 
+      - .:/app
