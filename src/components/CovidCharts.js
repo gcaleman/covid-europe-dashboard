@@ -25,11 +25,12 @@ export const CovidCharts = ({ name }) => {
 
     const shrinkDataForDate = () => {
         let lesserData = []
-        for (let index = 0; index < countryData.covidCases.length; index = index + 6) {
+        let dataArrayLength = countryData.covidCases.length - 1;
+        for (let index = 0; index < dataArrayLength; index = index + 5) {
             lesserData.push(countryData.covidCases[index]);
         }
         if (lesserData[countryData.covidCases[countryData.covidCases.length - 1]] !== countryData.covidCases[countryData.covidCases.length - 2])
-            lesserData.push(countryData.covidCases[countryData.covidCases.length - 1])
+            lesserData.push(countryData.covidCases[countryData.covidCases.length - 2])
         return lesserData;
     }
 
