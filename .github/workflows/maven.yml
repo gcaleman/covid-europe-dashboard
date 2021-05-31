@@ -29,3 +29,4 @@ jobs:
         environment_name: Covidinfo-env
         version_label: ${{github.SHA}}
         region: eu-west-1
+        wait_for_environment_recovery: false
