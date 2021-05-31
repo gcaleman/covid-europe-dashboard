@@ -21,11 +21,6 @@ public class DashboardController {
         this.service = service;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Void> getRoot() {
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
     @GetMapping("/country/{name}")
     public Country getCovidCasesByCountry(@PathVariable String name) {
         return service.getCountryDataByName(name);
