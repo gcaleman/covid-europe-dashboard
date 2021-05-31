@@ -29,4 +29,3 @@ jobs:
         environment_name: Covidinfo-env
         version_label: ${{github.SHA}}
         region: eu-west-1
-        deployment_package: target/dashboard-0.0.1-SNAPSHOT.jar
