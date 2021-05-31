@@ -4,10 +4,9 @@ import com.covideurope.dashboard.data.CovidInput;
 import com.covideurope.dashboard.model.Country;
 import com.covideurope.dashboard.model.Covid;
 import com.covideurope.dashboard.service.DashboardService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,6 +19,11 @@ public class DashboardController {
 
     public DashboardController(DashboardService service) {
         this.service = service;
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Void> getRoot() {
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/country/{name}")
