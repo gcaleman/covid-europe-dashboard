@@ -20,3 +20,13 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v13
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: covid-info
+        environment_name: Covidinfo-env
+        version_label: ${{github.SHA}}
+        region: eu-west-1
+        deployment_package: target/dashboard-0.0.1-SNAPSHOT.jar
