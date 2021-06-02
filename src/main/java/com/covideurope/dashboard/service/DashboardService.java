@@ -50,7 +50,7 @@ public class DashboardService {
         List<Covid> dataFromAllOnDates = new ArrayList<>();
         List<LocalDate> listOfDates = getListOfDates();
 
-        for (int i = 0; i < listOfDates.size() - 2; i++) {
+        for (int i = 0; i < listOfDates.size() - 2; i = i + 3) {
             Integer newCases = covidRepository.getSumOfNewCasesAllCountries(listOfDates.get(i));
             Integer totalCases = covidRepository.getSumOfTotalCasesAllCountries(listOfDates.get(i));
             Integer totalDeaths = covidRepository.getSumOfTotalDeathsAllCountries(listOfDates.get(i));
