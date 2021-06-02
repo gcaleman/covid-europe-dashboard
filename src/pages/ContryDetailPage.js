@@ -3,6 +3,7 @@ import { Container, Row, Col, Navbar, Nav } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { CovidCharts } from '../components/CovidCharts';
 import Select from 'react-select';
+import './ContryDetailPage.css';
 
 export const CountryDetailPage = () => {
 
@@ -45,7 +46,7 @@ export const CountryDetailPage = () => {
             <Navbar bg="dark" variant="dark" sticky="top">
                 <Container>
                     <Navbar.Brand href={`/country/${nameParamOrSelected}`} style={{ color: 'black', textAlign: 'center' }}>
-                        <h3 style={{ color: 'lightgrey' }}>{nameParamOrSelected}</h3>
+                        <h3 >{nameParamOrSelected}</h3>
                     </Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>

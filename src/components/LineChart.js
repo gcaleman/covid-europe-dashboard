@@ -1,7 +1,8 @@
 import { React, useRef, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 import Select from 'react-select';
+import './LineChart.css';
 
 export const LineChart = ({ covidData }) => {
 
@@ -325,14 +326,14 @@ export const LineChart = ({ covidData }) => {
 
 
     return (
-        <div>
+        <div className="chart_container">
             {/* <Select
                 defaultValue={[]}
                 onChange={setSelectedOption}
                 options={selectOptions}
                 placeholder="Select chart option.."
             /> */}
-            
+
             <Select
                 defaultValue={[""]}
                 isMulti
@@ -343,31 +344,34 @@ export const LineChart = ({ covidData }) => {
                 onChange={setSelectedOption}
                 placeholder="Select the data.."
             />
-            <Container>
-                {getChartPeopleVacPerHundred()}
+            <Card className="charts__card">
+                <Container>
+                    {getChartPeopleVacPerHundred()}
 
-                {getChartPeopleFullyVac()}
+                    {getChartPeopleFullyVac()}
 
-                {getChartPeopleVac()}
+                    {getChartPeopleVac()}
 
-                {getChartNewVaccinations()}
+                    {getChartNewVaccinations()}
 
-                {getChartTotalDeaths()}
+                    {getChartTotalDeaths()}
 
-                {getChartNewDeaths()}
+                    {getChartNewDeaths()}
 
-                {getChartTotalCases()}
+                    {getChartTotalCases()}
 
-                {getChartNewCases()}
-                <p style={{ color: 'grey', fontSize: 'small' }}>Data from <a href="https://ourworldindata.org/">ourworldindata</a></p>
-                {/* <div>
+                    {getChartNewCases()}
+                    {/* <div>
                     <Row>
                         <Line data={selectedOption.value} options={options} />
                     </Row>
                     <hr></hr>
                     <p style={{ color: 'grey', fontSize: 'small' }}>Data from <a href="https://ourworldindata.org/">ourworldindata</a></p>
                 </div> */}
-            </Container>
+                </Container>
+            </Card>
+            <p style={{ color: 'grey', fontSize: 'small' }}>Data from <a href="https://ourworldindata.org/">ourworldindata</a></p>
+
         </div>
     );
 }
