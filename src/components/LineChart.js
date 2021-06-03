@@ -195,9 +195,9 @@ export const LineChart = ({ covidData }) => {
         }
         if (addData[0]) {
             return (
-                <Row>
+                <Card className="charts__card">
                     <Line data={dataNewCases} options={options} />
-                </Row>
+                </Card>
             )
         }
         return <div></div>
@@ -212,9 +212,9 @@ export const LineChart = ({ covidData }) => {
         }
         if (addData[0]) {
             return (
-                <Row>
+                <Card className="charts__card">
                     <Line data={dataTotalCases} options={options} />
-                </Row>
+                </Card>
             )
         }
         return <div></div>
@@ -229,9 +229,9 @@ export const LineChart = ({ covidData }) => {
         }
         if (addData[0]) {
             return (
-                <Row>
+                <Card className="charts__card">
                     <Line data={dataNewDeaths} options={options} />
-                </Row>
+                </Card>
             )
         }
         return <div></div>
@@ -246,9 +246,9 @@ export const LineChart = ({ covidData }) => {
         }
         if (addData[0]) {
             return (
-                <Row>
+                <Card className="charts__card">
                     <Line data={dataTotalDeaths} options={options} />
-                </Row>
+                </Card>
             )
         }
         return <div></div>
@@ -263,9 +263,9 @@ export const LineChart = ({ covidData }) => {
         }
         if (addData[0]) {
             return (
-                <Row>
+                <Card className="charts__card">
                     <Line data={dataNewVaccinations} options={options} />
-                </Row>
+                </Card>
             )
         }
         return <div></div>
@@ -279,9 +279,9 @@ export const LineChart = ({ covidData }) => {
             }
             if (addData[0]) {
                 return (
-                    <Row>
+                    <Card className="charts__card">
                         <Line data={dataPeopleFullyVaccinated} options={options} />
-                    </Row>
+                    </Card>
                 )
             }
         }
@@ -298,9 +298,9 @@ export const LineChart = ({ covidData }) => {
         }
         if (addData[0]) {
             return (
-                <Row>
+                <Card className="charts__card">
                     <Line data={dataPeopleVaccinated} options={options} />
-                </Row>
+                </Card>
             )
         }
         return <div></div>
@@ -315,9 +315,9 @@ export const LineChart = ({ covidData }) => {
         }
         if (addData[0]) {
             return (
-                <Row>
+                <Card className="charts__card">
                     <Line data={dataPeopleVacPerHundred} options={options} />
-                </Row>
+                </Card>
             )
         }
         return <div></div>
@@ -344,35 +344,33 @@ export const LineChart = ({ covidData }) => {
                 onChange={setSelectedOption}
                 placeholder="Select the data.."
             />
-            <Card className="charts__card">
-                <Container>
-                    {getChartPeopleVacPerHundred()}
+            <Container>
+                {getChartPeopleVacPerHundred()}
 
-                    {getChartPeopleFullyVac()}
+                {getChartPeopleFullyVac()}
 
-                    {getChartPeopleVac()}
+                {getChartPeopleVac()}
 
-                    {getChartNewVaccinations()}
+                {getChartNewVaccinations()}
 
-                    {getChartTotalDeaths()}
+                {getChartTotalDeaths()}
 
-                    {getChartNewDeaths()}
+                {getChartNewDeaths()}
 
-                    {getChartTotalCases()}
+                {getChartTotalCases()}
 
-                    {getChartNewCases()}
-                    {/* <div>
+                {getChartNewCases()}
+                {/* <div>
                     <Row>
                         <Line data={selectedOption.value} options={options} />
                     </Row>
                     <hr></hr>
                     <p style={{ color: 'grey', fontSize: 'small' }}>Data from <a href="https://ourworldindata.org/">ourworldindata</a></p>
                 </div> */}
-                </Container>
-            </Card>
-            <p style={{ color: 'grey', fontSize: 'small' }}>Data from <a href="https://ourworldindata.org/">ourworldindata</a></p>
+            </Container>
+            <p style={{ color: 'grey', fontSize: 'small' }}>Data from <a style={{ textDecoration: 'none' }} href="https://ourworldindata.org/">ourworldindata</a></p>
 
-        </div>
+        </div >
     );
 }
 
