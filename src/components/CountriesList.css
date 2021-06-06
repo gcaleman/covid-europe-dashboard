@@ -1,0 +1,10 @@
+.contriesList {
+    text-align: left;
+    overflow-y: scroll;
+    height: 60vh;
+    scroll-behavior: smooth;
+}
+
+.contriesList ol {
+    padding-inline-start: 0.5rem;
+}

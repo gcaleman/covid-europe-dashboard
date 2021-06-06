@@ -1,6 +1,7 @@
 import { React, useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
+import './CountriesList.css';
 
 export const CountriesList = () => {
 
@@ -28,9 +29,9 @@ export const CountriesList = () => {
     }
 
     for (let index = 0; index < countriesList.length; index++) {
-        if(countriesList[index] !== "Brazil"){
+        if (countriesList[index] !== "Brazil") {
             europeanCountries.push(countriesList[index]);
-        }        
+        }
     }
 
     const getSearchTerm = () => {
@@ -60,11 +61,15 @@ export const CountriesList = () => {
     }
 
     return (
-        <div className="contriesList" style={{ textAlign: 'left' }}>
+        <div>
             <Form.Group>
                 <Form.Control ref={userInput} type='text' placeholder="Search country" value={searchTerm} onChange={getSearchTerm} />
             </Form.Group>
-            {mapFilteredList()}
+
+            <div className="contriesList">
+
+                {mapFilteredList()}
+            </div>
         </div>
     )
 }
