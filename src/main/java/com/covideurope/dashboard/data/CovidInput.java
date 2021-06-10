@@ -66,6 +66,7 @@ public class CovidInput {
     private String hospital_beds_per_thousand;
     private String life_expectancy;
     private String human_development_index;
+    private String excess_mortality;
 
     public CovidInput() {
     }
@@ -131,6 +132,78 @@ public class CovidInput {
         this.hospital_beds_per_thousand = hospital_beds_per_thousand;
         this.life_expectancy = life_expectancy;
         this.human_development_index = human_development_index;
+    }
+
+    public CovidInput(String id, String iso_code, String continent, String location, String date, String total_cases, String new_cases, String new_cases_smoothed, String total_deaths, String new_deaths, String new_deaths_smoothed, String total_cases_per_million, String new_cases_per_million, String new_cases_smoothed_per_million, String total_deaths_per_million, String new_deaths_per_million, String new_deaths_smoothed_per_million, String reproduction_rate, String icu_patients, String icu_patients_per_million, String hosp_patients, String hosp_patients_per_million, String weekly_icu_admissions, String weekly_icu_admissions_per_million, String weekly_hosp_admissions, String weekly_hosp_admissions_per_million, String new_tests, String total_tests, String total_tests_per_thousand, String new_tests_per_thousand, String new_tests_smoothed, String new_tests_smoothed_per_thousand, String positive_rate, String tests_per_case, String tests_units, String total_vaccinations, String people_vaccinated, String people_fully_vaccinated, String new_vaccinations, String new_vaccinations_smoothed, String total_vaccinations_per_hundred, String people_vaccinated_per_hundred, String people_fully_vaccinated_per_hundred, String new_vaccinations_smoothed_per_million, String stringency_index, String population, String population_density, String median_age, String aged_65_older, String aged_70_older, String gdp_per_capita, String extreme_poverty, String cardiovasc_death_rate, String diabetes_prevalence, String female_smokers, String male_smokers, String handwashing_facilities, String hospital_beds_per_thousand, String life_expectancy, String human_development_index, String excess_mortality) {
+        this.id = id;
+        this.iso_code = iso_code;
+        this.continent = continent;
+        this.location = location;
+        this.date = date;
+        this.total_cases = total_cases;
+        this.new_cases = new_cases;
+        this.new_cases_smoothed = new_cases_smoothed;
+        this.total_deaths = total_deaths;
+        this.new_deaths = new_deaths;
+        this.new_deaths_smoothed = new_deaths_smoothed;
+        this.total_cases_per_million = total_cases_per_million;
+        this.new_cases_per_million = new_cases_per_million;
+        this.new_cases_smoothed_per_million = new_cases_smoothed_per_million;
+        this.total_deaths_per_million = total_deaths_per_million;
+        this.new_deaths_per_million = new_deaths_per_million;
+        this.new_deaths_smoothed_per_million = new_deaths_smoothed_per_million;
+        this.reproduction_rate = reproduction_rate;
+        this.icu_patients = icu_patients;
+        this.icu_patients_per_million = icu_patients_per_million;
+        this.hosp_patients = hosp_patients;
+        this.hosp_patients_per_million = hosp_patients_per_million;
+        this.weekly_icu_admissions = weekly_icu_admissions;
+        this.weekly_icu_admissions_per_million = weekly_icu_admissions_per_million;
+        this.weekly_hosp_admissions = weekly_hosp_admissions;
+        this.weekly_hosp_admissions_per_million = weekly_hosp_admissions_per_million;
+        this.new_tests = new_tests;
+        this.total_tests = total_tests;
+        this.total_tests_per_thousand = total_tests_per_thousand;
+        this.new_tests_per_thousand = new_tests_per_thousand;
+        this.new_tests_smoothed = new_tests_smoothed;
+        this.new_tests_smoothed_per_thousand = new_tests_smoothed_per_thousand;
+        this.positive_rate = positive_rate;
+        this.tests_per_case = tests_per_case;
+        this.tests_units = tests_units;
+        this.total_vaccinations = total_vaccinations;
+        this.people_vaccinated = people_vaccinated;
+        this.people_fully_vaccinated = people_fully_vaccinated;
+        this.new_vaccinations = new_vaccinations;
+        this.new_vaccinations_smoothed = new_vaccinations_smoothed;
+        this.total_vaccinations_per_hundred = total_vaccinations_per_hundred;
+        this.people_vaccinated_per_hundred = people_vaccinated_per_hundred;
+        this.people_fully_vaccinated_per_hundred = people_fully_vaccinated_per_hundred;
+        this.new_vaccinations_smoothed_per_million = new_vaccinations_smoothed_per_million;
+        this.stringency_index = stringency_index;
+        this.population = population;
+        this.population_density = population_density;
+        this.median_age = median_age;
+        this.aged_65_older = aged_65_older;
+        this.aged_70_older = aged_70_older;
+        this.gdp_per_capita = gdp_per_capita;
+        this.extreme_poverty = extreme_poverty;
+        this.cardiovasc_death_rate = cardiovasc_death_rate;
+        this.diabetes_prevalence = diabetes_prevalence;
+        this.female_smokers = female_smokers;
+        this.male_smokers = male_smokers;
+        this.handwashing_facilities = handwashing_facilities;
+        this.hospital_beds_per_thousand = hospital_beds_per_thousand;
+        this.life_expectancy = life_expectancy;
+        this.human_development_index = human_development_index;
+        this.excess_mortality = excess_mortality;
+    }
+
+    public String getExcess_mortality() {
+        return excess_mortality;
+    }
+
+    public void setExcess_mortality(String excess_mortality) {
+        this.excess_mortality = excess_mortality;
     }
 
     public String getId() {
