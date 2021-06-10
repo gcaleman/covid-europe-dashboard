@@ -29,7 +29,6 @@ export const CovidCharts = ({ name }) => {
         for (let index = 0; index < dataArrayLength; index++) {
             lesserData.push(countryData.covidCases[index]);
         }
-        console.log(lesserData);
         if (lesserData[lesserData.length - 1] !== countryData.covidCases[countryData.covidCases.length - 2])
             lesserData.push(countryData.covidCases[countryData.covidCases.length - 2])
         return lesserData;
